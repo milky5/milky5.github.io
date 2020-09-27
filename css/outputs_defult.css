@@ -1,0 +1,36 @@
+body {
+    background-color: #f6e5d7;
+    color: #657b83;
+}
+
+h1 {
+    text-align: center;
+    background-color: #73d0c2;
+    color: white;
+}
+
+h2 {
+    color: #ed8d49;
+    border-left: solid 5px #ffc530;
+    border-bottom: solid 2px #ffc530;
+}
+
+h3 {
+    color: #ed8d49;
+    background-color: #ffc530;
+    display: inline;
+}
+
+strong {
+    background-color: #978d86;
+    color: rgba(255, 255, 255, 0.897);
+}
+
+blockquote {
+    border-left: 0px;
+}
+
+a {
+    color: #73d0c2;
+    border-bottom: solid 1px;
+}
