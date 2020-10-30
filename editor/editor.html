@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script></script>
+    <style type="text/css">
+        .flex {
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: nowrap;
+            align-items: stretch;
+        }
+        
+        .flex>* {
+            width: 8%;
+            background: #fff;
+        }
+        /* .separator {
+            width: 0%;
+            cursor: col-resize;
+            resize: horizontal;
+        } */
+        
+        .half {
+            width: 50%;
+            height: 100vh;
+        }
+        
+        .full {
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .disable {
+            display: none;
+        }
+        
+        .edit-and-preview {
+            background-color: white;
+        }
+        
+        .edit-or-preview {
+            background-color: cadetblue;
+        }
+        
+        .edit-area {
+            background-color: black;
+        }
+        
+        .preview-area {
+            background-color: red;
+            box-sizing: border-box;
+            overflow-y: scroll;
+        }
+        
+        textarea {
+            height: 100%;
+            width: 100%;
+            resize: none;
+            background-color: #2d2d2d;
+            color: white;
+            /* Safari/Chrome, other WebKit */
+            -webkit-box-sizing: border-box;
+            /* Firefox, other Gecko */
+            -moz-box-sizing: border-box;
+            /* Opera/IE 8+ */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<link href="../css/editor.css" rel="stylesheet"></link>
+
+<body>
+    <h1>MarkDown Editor</h1>
+    <input type="button" id="SwitchModeButton" value="交互に表示" onclick="SwitchMode()" />
+    <div id="EditAndPreview" class="edit-and-preview flex">
+        <div class="edit-area half">
+            <textarea id="AndModeTextarea" oninput="Conversion()"></textarea>
+        </div>
+        <!-- <div class="separator resizeable"></div> -->
+        <div id="AndModePreviewArea" class="preview-area half"></div>
+    </div>
+    <div id="EditOrPreview" class="edit-or-preview disable">
+        <input type="button" id="SwitchViewButton" value="プレビュー" onclick="SwitchView()" />
+        <div id="OrModeEditArea" class="edit-area full">
+            <textarea id="OrModeTextarea"></textarea>
+        </div>
+        <div id="OrModePreviewArea" class="preview-area full disable"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        var nowMode = "and";
+        var nowView = "edit";
+
+        function SwitchMode() {
+            const button = document.getElementById('SwitchModeButton');
+            const and = document.getElementById('EditAndPreview');
+            const or = document.getElementById('EditOrPreview');
+            const andTextarea = document.getElementById('AndModeTextarea');
+            const orTextarea = document.getElementById('OrModeTextarea')
+
+            switch (nowMode) {
+                case "and":
+                    nowMode = "or";
+                    button.value = "並べて表示";
+                    and.classList.add('disable');
+                    or.classList.remove('disable');
+                    orTextarea.value = andTextarea.value;
+                    andTextarea.value = '';
+                    Conversion();
+                    break;
+                case "or":
+                    nowMode = "and";
+                    button.value = "交互に表示";
+                    or.classList.add('disable');
+                    and.classList.remove('disable');
+                    andTextarea.value = orTextarea.value;
+                    orTextarea.value = '';
+                    Conversion();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function SwitchView() {
+            const button = document.getElementById('SwitchViewButton');
+            const edit = document.getElementById('OrModeEditArea');
+            const preview = document.getElementById('OrModePreviewArea');
+
+            switch (nowView) {
+                case "edit":
+                    nowView = "preview";
+                    button.value = "編集";
+                    edit.classList.add('disable');
+                    preview.classList.remove('disable');
+                    Conversion();
+                    break;
+                case "preview":
+                    nowView = "edit";
+                    button.value = "プレビュー";
+                    preview.classList.add('disable');
+                    edit.classList.remove('disable');
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function Conversion() {
+            if (nowMode === "and") {
+                const textarea = document.getElementById("AndModeTextarea")
+                const previewArea = document.getElementById("AndModePreviewArea")
+                previewArea.innerHTML = marked(textarea.value)
+            } else {
+                const textarea = document.getElementById("OrModeTextarea")
+                const previewArea = document.getElementById("OrModePreviewArea")
+                previewArea.innerHTML = marked(textarea.value)
+            }
+        }
+    </script>
+</body>
+
+</html>

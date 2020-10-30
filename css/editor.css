@@ -1,0 +1,216 @@
+/* vscode extension markdown-pdf markdown.css */
+
+body {
+    font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+    font-size: var(--vscode-markdown-font-size, 14px);
+    line-height: var(--vscode-markdown-line-height, 22px);
+    word-wrap: break-word;
+}
+
+.preview-area img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.preview-area a {
+    text-decoration: none;
+}
+
+.preview-area a:focus,
+.preview-area input:focus,
+.preview-area select:focus,
+.preview-area textarea:focus {
+    outline: 1px solid -webkit-focus-ring-color;
+    outline-offset: -1px;
+}
+
+.preview-area hr {
+    border: 0;
+    height: 2px;
+    border-bottom: 2px solid #978d86;
+}
+
+.preview-area h1 {
+    padding-bottom: 0.3em;
+    line-height: 1.2;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.preview-area h1,
+.preview-area h2,
+.preview-area h3 {
+    font-weight: normal;
+}
+
+.preview-area table {
+    border-collapse: collapse;
+}
+
+.preview-area table>thead>tr>th {
+    text-align: left;
+    border-bottom: 1px solid #978d86 !important;
+}
+
+.preview-area table>thead>tr>th,
+.preview-area table>thead>tr>td,
+.preview-area table>tbody>tr>th,
+.preview-area table>tbody>tr>td {
+    padding: 5px 10px #978d86 !important;
+}
+
+.preview-area table>tbody>tr+tr>td {
+    border-top: 1px solid #978d86 !important;
+}
+
+.preview-area code {
+    font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+    font-size: 1em;
+    line-height: 1.357em;
+}
+
+
+/* vscode extension markdown-pdf markdown-pdf.css */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+}
+
+.preview-area .emoji {
+    height: 1.4em;
+}
+
+.preview-area code {
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.preview-area :not(pre):not(.hljs)>code {
+    color: #C9AE75;
+    /* Change the old color so it seems less like an error */
+    font-size: inherit;
+}
+
+
+/* google chrome argent stylesheet */
+
+.preview-area h1 {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67__qem;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold
+}
+
+.preview-area h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83__qem;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold
+}
+
+.preview-area h3 {
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1__qem;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold;
+}
+
+.preview-area h4 {
+    display: block;
+    -webkit-margin-before: 1.33__qem;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold
+}
+
+.preview-area h5 {
+    display: block;
+    font-size: .83em;
+    -webkit-margin-before: 1.67__qem;
+    -webkit-margin-after: 1.67em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold
+}
+
+.preview-area h6 {
+    display: block;
+    font-size: .67em;
+    -webkit-margin-before: 2.33__qem;
+    -webkit-margin-after: 2.33em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    font-weight: bold
+}
+
+
+/* 自作部分 */
+
+.preview-area {
+    padding: 2%;
+}
+
+.preview-area {
+    background-color: #f6e5d7;
+    color: #978d86;
+}
+
+.preview-area h1 {
+    text-align: center;
+    background-color: #73d0c2;
+    color: white;
+    font-weight: normal;
+}
+
+.preview-area h2 {
+    color: #978d86;
+    border-left: solid 5px #ed8d49;
+    border-bottom: solid 2px #ed8d49;
+    font-weight: bold;
+}
+
+.preview-area h3 {
+    color: #ed8d49;
+    border-bottom: solid 2px #ed8d49;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.preview-area strong {
+    color: white;
+    background-color: #73d0c2;
+    font-weight: normal;
+}
+
+.preview-area strong .old {
+    background-color: #978d86;
+    color: rgba(255, 255, 255, 0.897);
+}
+
+.preview-area blockquote {
+    border-left: solid 5px #73d0c2 !important;
+    background-color: white;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 1em;
+    margin-inline-end: 1em;
+}
+
+.preview-area a {
+    color: #73d0c2;
+    border-bottom: solid 1px;
+}
+
+.preview-area hr {
+    border-color: #73d0c2 !important;
+}
