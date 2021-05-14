@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run sh
-        run: sh ./.github/test.sh
+        run: sh ./test.sh
